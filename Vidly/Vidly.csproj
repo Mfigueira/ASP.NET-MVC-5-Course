@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -201,6 +202,26 @@
     <Compile Include="Migrations\201901222212448_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>201901222212448_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901231528247_AddNamePropToMembershipType.cs" />
+    <Compile Include="Migrations\201901231528247_AddNamePropToMembershipType.Designer.cs">
+      <DependentUpon>201901231528247_AddNamePropToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901231530029_UpdateMembershipTypeWithName.cs" />
+    <Compile Include="Migrations\201901231530029_UpdateMembershipTypeWithName.Designer.cs">
+      <DependentUpon>201901231530029_UpdateMembershipTypeWithName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901231547049_UpdateMembershipTypes.cs" />
+    <Compile Include="Migrations\201901231547049_UpdateMembershipTypes.Designer.cs">
+      <DependentUpon>201901231547049_UpdateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901231704414_AddBirthDateToCustomer.cs" />
+    <Compile Include="Migrations\201901231704414_AddBirthDateToCustomer.Designer.cs">
+      <DependentUpon>201901231704414_AddBirthDateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901231731036_BirthDateToCustomer.cs" />
+    <Compile Include="Migrations\201901231731036_BirthDateToCustomer.Designer.cs">
+      <DependentUpon>201901231731036_BirthDateToCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -306,6 +327,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901222212448_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>201901222212448_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901231528247_AddNamePropToMembershipType.resx">
+      <DependentUpon>201901231528247_AddNamePropToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901231530029_UpdateMembershipTypeWithName.resx">
+      <DependentUpon>201901231530029_UpdateMembershipTypeWithName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901231547049_UpdateMembershipTypes.resx">
+      <DependentUpon>201901231547049_UpdateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901231704414_AddBirthDateToCustomer.resx">
+      <DependentUpon>201901231704414_AddBirthDateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901231731036_BirthDateToCustomer.resx">
+      <DependentUpon>201901231731036_BirthDateToCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
