@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
 using System.Data.Entity;
+using System;
+using Vidly.Migrations;
 
 namespace Vidly.Controllers
 {
@@ -45,9 +47,21 @@ namespace Vidly.Controllers
         }
 
         // Must be "id", the name of the default parameter in RouteConfig
-        public ContentResult Edit(int id)
+        public ActionResult Edit(int id)
         {
-            return Content("id=" + id);
+            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            var viewModel = new MovieFormViewModel
+            {
+                Movie = movie,
+                Genres = _context.Genre.ToList()
+            };
+
+
+            return View("MovieForm", viewModel);
         }
 
         ////movies
@@ -86,6 +100,41 @@ namespace Vidly.Controllers
             return View(movie);
             
         }
+
+        public ActionResult New()
+        {
+            var genres = _context.Genre.ToList();
+
+            var viewModel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                movie.CreationDate = DateTime.Now;
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                movieInDb.Name = movie.Name;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.NumberInStock = movie.NumberInStock;
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movies");
+        }
+
         //private IEnumerable<Movie> GetMovies()
         //{
         //    return new List<Movie>

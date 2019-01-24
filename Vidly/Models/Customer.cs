@@ -18,10 +18,13 @@ namespace Vidly.Models
 
         public MembershipType MembershipType { get; set; }
 
+        // The Required Data Anotation is not necessary (because the byte. cannot be value=0 when no selection in HTML), this is only for displaying a personal error message.
         [Display(Name = "Membership Type")]
+        [Required(ErrorMessage = "Please select a Membership Type.")]
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of Birth")]
+        [Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
     }
 }
