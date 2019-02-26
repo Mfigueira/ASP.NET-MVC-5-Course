@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Vidly.Models
+namespace Vidly.Dtos
 {
-    public class Customer
+    public class CustomerDto
     {
         public int Id { get; set; }
 
@@ -13,15 +13,10 @@ namespace Vidly.Models
 
         public bool IsSubscribedToNewsletter { get; set; }
 
-        public MembershipType MembershipType { get; set; }
-
-        // The Required Data Anotation is not necessary (because the byte. cannot be value=0 when no selection in HTML), this is only for displaying a personal error message.
-        [Display(Name = "Membership Type")]
         [Required(ErrorMessage = "Please select a Membership Type.")]
         public byte MembershipTypeId { get; set; }
 
-        [Display(Name = "Date of Birth")]
-        [Min18YearsIfAMember]
+        //[Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
     }
 }
