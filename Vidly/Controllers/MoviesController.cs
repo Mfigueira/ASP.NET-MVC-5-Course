@@ -84,9 +84,7 @@ namespace Vidly.Controllers
         //movies
         public ActionResult Index()
         {
-            var movies = _context.Movies.ToList();
-
-            return View(movies);
+            return View();
         }
 
         public ActionResult Details(int id)
